@@ -75,7 +75,7 @@
     [self didChangeValueForKey:@"isExecuting"];
     
     NSURLRequest *request = [self configuredRequest];
-    HRLOG(@"FETCHING:%@ \nHEADERS:%@", [[request URL] absoluteString], [request allHTTPHeaderFields]);
+    id blah = HRLOG(@"FETCHING:%@ \nHEADERS:%@", [[request URL] absoluteString], [request allHTTPHeaderFields]);
     _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
     
     if(_connection) {
@@ -306,8 +306,8 @@
         break;   
     }
     
-    NSString *errorMessage = [NSString stringWithFormat:@"Invalid Formatter %@", NSStringFromClass(theFormatter)];
-    NSAssert([theFormatter conformsToProtocol:@protocol(HRFormatterProtocol)], errorMessage); 
+//    NSString *errorMessage = [NSString stringWithFormat:@"Invalid Formatter %@", NSStringFromClass(theFormatter)];
+//    NSAssert([theFormatter conformsToProtocol:@protocol(HRFormatterProtocol)], errorMessage); 
     
     return theFormatter;
 }
